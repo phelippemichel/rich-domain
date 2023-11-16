@@ -3,9 +3,9 @@ using Flunt.Validations;
 
 namespace PaymentContext.Domain.ValueObjects
 {
-    public abstract class Address : ValueObject
+    public class Address : ValueObject
     {
-        protected Address(string street, string number, string neighborhood, string city, string state, string country, string zipCode)
+        public Address(string street, string number, string neighborhood, string city, string state, string country, string zipCode)
         {
             Street = street;
             Number = number;
@@ -17,7 +17,7 @@ namespace PaymentContext.Domain.ValueObjects
 
             AddNotifications(new Contract<Address>()
                 .Requires()
-                .IsBetween(Street.Length, 3, 40, "Name.FirstName", "Nome deve conter entre 3 e 40 caracteres")
+                .IsBetween(Street.Length, 3, 40, "Address.Street", "A rua deve conter pelo menos 3 caracteres")
             );
         }
 

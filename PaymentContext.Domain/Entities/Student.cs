@@ -41,7 +41,7 @@ namespace PaymentContext.Domain.Entities
                 .AreNotEquals(0, subscription.Payments.Count, "Student.Subscription.Payments", "Esta assinatura não possui pagamentos")
             );
 
-            if (Valid)
+            if (IsValid)
                 _subscriptions.Add(subscription);
             // Alternativa
             // if (hasSubscriptionActive)
